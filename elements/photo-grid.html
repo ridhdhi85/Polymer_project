@@ -1,0 +1,72 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+
+<dom-module id="photo-grid">
+	<template>
+		<style type="text/css">
+			.image-container{
+				@apply (--layout-horizontal);
+				@apply (--layout-wrap);
+			}
+			.media {
+				@apply (--layout-start);
+				@apply (--layout-horizontal);
+				padding-bottom: 10px;
+			}
+			.media-figure {
+				margin-right: 1em;
+				max-width: 200px;
+			}
+			.media-body {
+				@apply (--layout-flex);
+				max-width: 200px;
+			}
+			paper-dialog.size-position {
+  				position: absolute;
+  				margin: 0;
+			}
+		</style>
+		<div class="image-container">
+  			<template is="dom-repeat" items="{{images}}">
+    			<div class="media" data-dialog="dialog" on-click="clickHandler">
+      				<img class="media-figure" src="{{item.url}}" alt="{{item.alt}}">
+      				<p class="media-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus pariatur aperiam esse vero libero, itaque placeat iure hic est non culpa ratione expedita distinctio aspernatur sit suscipit ullam! Minus, temporibus.</p>
+    			</div>
+    			<paper-dialog id="dialog">
+      				<img src="{{item.url}}" alt="{{item.alt}}">
+	 			</paper-dialog>
+  			</template>
+		</div>
+	</template>
+</dom-module>
+
+<script type="text/javascript">
+	Polymer({
+		is: 'photo-grid',
+		clickHandler: function(event, detail, sender) {
+			var button = event.target;
+			while (!button.hasAttribute('data-dialog') && button !== document.body) {
+	    		button = button.parentElement;
+	  		}
+	  		if (!button.hasAttribute('data-dialog')) {
+	    		return;
+	  		}
+	  		//Gets our paper-dialog
+	  		var dialog = button.nextSibling.nextSibling;
+	  		dialog.open();
+		},
+		ready: function() {
+			this.images = [
+			  {alt: "image1" , url: "http://lorempixel.com/g/500/500/"},
+		      {alt: "image2" , url: "http://lorempixel.com/g/600/600/"},
+			  {alt: "image3" , url: "http://lorempixel.com/g/800/800/"},
+			  {alt: "image4" , url: "http://lorempixel.com/g/300/300/"},
+			  {alt: "image5" , url: "http://lorempixel.com/g/200/200/"},
+			  {alt: "image6" , url: "http://lorempixel.com/g/1000/1000/"},
+			  {alt: "image7" , url: "http://lorempixel.com/g/500/500/"},
+              {alt: "image8" , url: "http://lorempixel.com/g/400/400/"}
+			];
+		}
+	});
+</script>

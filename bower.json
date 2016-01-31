@@ -1,0 +1,21 @@
+{
+  "name": "Polymer_project",
+  "homepage": "https://github.com/ridhdhi85/Polymer_project",
+  "authors": [
+    "Ridhdhi <Ridhdhisachu@gmail.com>"
+  ],
+  "description": "Polymer basics",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.2.4"
+  }
+}

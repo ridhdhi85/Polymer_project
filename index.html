@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Polymer Test</title>
+		<script type="text/javascript"
+	  		src="bower_components/webcomponentsjs/webcomponents.min.js">
+		</script>
+		<link rel="import" href="elements/photo-grid.html">
+		<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+		<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+		<style type="text/css">
+			paper-scroll-header-panel {
+			  position: absolute;
+			  top: 0;
+			  right: 0;
+			  bottom: 0;
+			  left: 0;
+			  background-color: #eee;
+			}
+			paper-toolbar {
+			  background-color: #4285f4;
+			}
+			paper-toolbar .title {
+			  margin: 0 8px;
+			}
+			paper-scroll-header-panel .content {
+			  padding: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<paper-scroll-header-panel>
+		    <paper-toolbar>
+		      <div class="title">My photo's</div>
+		    </paper-toolbar>
+		    <div class="content">
+		      <photo-grid></photo-grid>
+		    </div>
+		</paper-scroll-header-panel>
+	</body>
+</html>
